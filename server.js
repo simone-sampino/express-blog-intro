@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
+app.use(express.static("public"));
+
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
@@ -42,3 +44,7 @@ const posts = [
     tags: ["dolce", "torta", "tradizione"],
   },
 ];
+
+app.get("/api/posts", (req, res) => {
+  res.json(posts);
+});
