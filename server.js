@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
   res.send("Server del mio blog");
 });
 
+app.get("/api/posts", (req, res) => {
+  res.json(posts);
+});
+
 const posts = [
   {
     title: "Ciambellone",
@@ -44,7 +48,3 @@ const posts = [
     tags: ["dolce", "torta", "tradizione"],
   },
 ];
-
-app.get("/api/posts", (req, res) => {
-  res.json(posts);
-});
