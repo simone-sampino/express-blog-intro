@@ -55,8 +55,42 @@ const posts = [
 ];
 
 // Index (read)
-router.get("/api/posts", (req, res) => {
+router.get("/", (req, res) => {
   res.json(posts);
+});
+
+// Show (read)
+router.get("/:id", (req, res) => {
+  console.log(req.params);
+  const id = req.params.id;
+
+  res.send(`You requested the recipe with id: ${id}`);
+});
+
+// Store (create)
+router.post("/", (req, res) => {
+  res.send("Save a new recipe into the db");
+});
+
+// Update (update)
+router.put("/:id", (req, res) => {
+  const id = req.params.id;
+
+  res.send(`You want to update recipe with id: ${id}`);
+});
+
+// Modify (update)
+router.patch("/:id", (req, res) => {
+  const id = req.params.id;
+
+  res.send(`You want to modify recipe with id: ${id}`);
+});
+
+// Destroy (delete)
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+
+  res.send(`You want to delete recipe with id: ${id}`);
 });
 
 module.exports = router;
